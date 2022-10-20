@@ -1,0 +1,42 @@
+buildscript { // 프로젝트 의존성 관리
+    ext { // 전역변수 설정
+        springBootVersion = '2.1.7.RELEASE'
+    }
+    repositories {
+        jcenter() // 라이브러리 업로드가 용이 (mavenCentral에도 자동으로 업로드 될 수 있도록 자동화 가능)
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+// 스프링 부트를 사용하기 위한 필수 플러그인
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management' // 스프링부트의 의존성들을 관리
+
+//plugins {
+//    id 'java'
+//}
+
+group 'org.example.caleb'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //compile('org.springframework.boot:spring-boot-starter-web') // Gradle 7.0부터 지원하지 않음
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    //testCompile('org.springframework.boot:spring-boot-starter-test')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
