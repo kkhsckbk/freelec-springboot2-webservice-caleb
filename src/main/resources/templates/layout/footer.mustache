@@ -1,0 +1,18 @@
+<!--
+페이지 로딩 속도를 높이기 위해 JS를 footer에 배치
+<head>가 다 그려지고나서 <body>가 그려짐
+bootstrap.js의 경우, jquery가 꼭 있어야만 하기 때문에 jquery를 먼저 배치
+-->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!--index.js 추가-->
+<!--스프링부트는 기본적으로 src/main/resources/static에 위치한 자바스크립트,CSS,이미지 등 정적 파일들은 URL에서 /로 설정
+호출 관계:
+src/main/resources/static/js/... (http://도메인/js/...)
+src/main/resources/static/css/... (http://도메인/css/...)
+src/main/resources/static/image/... (http://도메인/image/...)
+-->
+<script src="/js/app/index.js"></script>
+</body>
+</html>
